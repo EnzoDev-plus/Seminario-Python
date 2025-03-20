@@ -32,6 +32,7 @@ correct_answers_index = [1, 2, 0, 3, 1]
 3.
 
 # El usuario deberá contestar 3 preguntas
+puntaje = 0
 for _ in range(3):
 # Se selecciona una pregunta aleatoria
     question_index = random.randint(0, len(questions) - 1)
@@ -47,15 +48,19 @@ for _ in range(3):
 # Se verifica si la respuesta es correcta
             if user_answer == correct_answers_index[question_index]:
                 print("¡Correcto!")
+                puntaje+=1
                 break
             else:
-# Si el usuario no responde correctamente después de2 intentos, # se muestra la respuesta correcta
-                print("Incorrecto. La respuesta correcta es:")
-                print(answers[question_index][correct_answers_index[question_index]])
+# Si el usuario no responde correctamente después de 2 intentos, 
+# # se muestra la respuesta correcta
+                puntaje+=-0.5
         else:
             print("Respuesta no valida")
             sys.exit(1)
+    else: 
+        print("Incorrecto. La respuesta correcta es: ")
+        print(answers[question_index][correct_answers_index[question_index]])
 
-            
 # Se imprime un blanco al final de la pregunta
 print()
+print("El puntaje final obtenido fue: ",puntaje)
