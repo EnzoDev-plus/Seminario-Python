@@ -25,8 +25,9 @@ answers = [
 correct_answers_index = [1, 2, 0, 3, 1]
 # El usuario deberá contestar 3 preguntas
 puntaje = 0
-# Se selecciona una pregunta aleatoria, ayuda de la práctica
-questions_to_ask = random.choices(list(zip(questions,answers, correct_answers_index)), k=3)
+# Se selecciona una pregunta aleatoria,con random.sample() me aseguro que 
+# no va a haber repetidos,ayuda de la práctica.
+questions_to_ask = random.sample(list(zip(questions,answers, correct_answers_index)), k=3)
 # Se muestra la pregunta y las respuestas posibles, se deben contestar 3 preguntas
 for pregunta,opciones,respuesta in questions_to_ask:
     print(pregunta)
