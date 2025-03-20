@@ -45,7 +45,7 @@ for pregunta,opciones,respuesta in questions_to_ask:
                 break
             else:
 # Si el usuario no responde correctamente después de 2 intentos, 
-# # se muestra la respuesta correcta
+#  se muestra la respuesta correcta
                 puntaje+=-0.5
         else:
             print("Respuesta no valida")
