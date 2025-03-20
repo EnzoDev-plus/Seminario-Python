@@ -23,15 +23,15 @@ answers = [
 ]
 # Índice de la respuesta correcta para cada pregunta, en el mismo orden que las preguntas
 correct_answers_index = [1, 2, 0, 3, 1]
-# El usuario deberá contestar 3 preguntas
+# El usuario deberá contestar 3 preguntas, inicializo el puntaje del jugador
 puntaje = 0
 # Se selecciona una pregunta aleatoria,con random.sample() me aseguro que 
 # no va a haber repetidos,ayuda de la práctica.
 questions_to_ask = random.sample(list(zip(questions,answers, correct_answers_index)), k=3)
 # Se muestra la pregunta y las respuestas posibles, se deben contestar 3 preguntas
-for pregunta,opciones,respuesta in questions_to_ask:
+for pregunta,options,respuesta in questions_to_ask:
     print(pregunta)
-    for i, answer in enumerate(opciones):
+    for i, answer in enumerate(options):
         print(f"{i + 1}. {answer}")
 # El usuario tiene 2 intentos para responder correctamente
     for intento in range(2):
@@ -44,15 +44,15 @@ for pregunta,opciones,respuesta in questions_to_ask:
                 puntaje+=1
                 break
             else:
-# Si el usuario no responde correctamente después de 2 intentos, 
-#  se muestra la respuesta correcta
                 puntaje+=-0.5
         else:
             print("Respuesta no valida")
             sys.exit(1)
+# Si el usuario no responde correctamente después de 2 intentos, 
+# se muestra la respuesta correcta, break no se ejecuta
     else: 
         print("Incorrecto. La respuesta correcta es: ")
-        print(opciones[respuesta])
+        print(options[respuesta])
 
 # Se imprime un blanco al final de la pregunta
 print()
