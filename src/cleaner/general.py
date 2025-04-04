@@ -1,3 +1,6 @@
+def processing(cadena):
+    cadena.split()
+    print(cadena)
 
 
 def clean_country (country):
